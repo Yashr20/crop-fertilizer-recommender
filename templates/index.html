@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KHETI-KAKSHA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('{{ url_for('static', filename='1.jpg') }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        header h1 span {
+            color: #4CAF50;
+        }
+        header nav {
+            margin-left: auto;
+        }
+        header a {
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: #fff;
+            background-color: transparent;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        header a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .hero-section {
+            text-align: center;
+            padding: 2rem;
+            color: #fff;
+        }
+        .hero-section h1 {
+            font-size: 48px;
+            margin-bottom: 1rem;
+        }
+        .hero-section p {
+            font-size: 20px;
+            margin-bottom: 2rem;
+        }
+        .highlight {
+            font-weight: bold;
+            color: yellow;
+        }
+        .services-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .service {
+            flex-basis: calc(33.33% - 2rem);
+            margin: 1rem;
+            padding: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .service h2 {
+            margin-top: 0;
+            color: #4CAF50;
+        }
+        .service p {
+            margin-bottom: 1rem;
+        }
+        .service a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .service a:hover {
+            background-color: #45a049;
+        }
+        footer {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1><span>KHETI-KAKSHA</span></h1>
+    <nav>
+        <a href="/about">About us</a>
+        <a href="/crop-recommend">Crop</a>
+        <a href="/fertilizer">Fertilizer</a>
+        <a href="/contact">Contact us</a>
+    </nav>
+</header>
+<div class="container">
+    <div class="hero-section">
+        <h1>Welcome to KHETI-KAKSHA</h1>
+        <p style="font-family: cursive; font-weight: bold;">
+            <span class="highlight">किसान</span> का विकास, भारत देश का <span class="highlight">विकास|</span>
+        </p>
+        <p style="font-family: cursive; font-weight: bold;">
+            Empowering Farmers with Smart Agricultural Solutions
+        </p>
+    </div>
+    <div class="services-section">
+        <div class="service">
+            <h2>Crop Recommendation</h2>
+            <p>Get suggestions for the most suitable crops based on environmental and climatic conditions.</p>
+            <a href="/crop-recommend">Explore</a>
+        </div>
+        <div class="service">
+            <h2>Fertilizer Recommendation</h2>
+            <p>Receive advice on the ideal fertilizer for specific soil and climate conditions to boost productivity.</p>
+            <a href="/fertilizer">Explore</a>
+        </div>
+        <div class="service">
+            <h2>About us</h2>
+            <p>Learn more about KHETI-KAKSHA and our mission to revolutionize agriculture.</p>
+            <a href="/about">Learn More</a>
+        </div>
+    </div>
+</div>
+<footer>
+    <p>&copy; 2024 KHETI-KAKSHA. All rights reserved.</p>
+</footer>
+</body>
+</html>

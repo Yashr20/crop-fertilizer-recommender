@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KHETI-KAKSHA - Fertilizer Recommendation Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('{{ url_for('static', filename='5.jpg') }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header nav {
+            margin-right: 1rem;
+        }
+        header a {
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        header a:hover {
+            background-color: #45a049;
+        }
+        main {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 5rem auto 2rem auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        h1 {
+            margin-top: 0;
+            text-align: center;
+            color: #4CAF50;
+        }
+        .result {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .result h2 {
+            color: #4CAF50;
+            font-size: 24px;
+            margin-bottom: 1rem;
+        }
+        .fertilizer-name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .back-button {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .back-button a {
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .back-button a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>KHETI-KAKSHA</h1>
+        <nav>
+            <a href="/">HOME</a>
+            <a href="/crop-recommend">Crop</a>
+            <a href="/fertilizer">Fertilizer</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Fertilizer Recommendation Result</h1>
+        <div class="result">
+            <h2>Your Recommended Fertilizer:</h2>
+            <div class="fertilizer-name">{{ prediction }}</div>
+        </div>
+        <div class="back-button">
+            <a href="/fertilizer">Back to Fertilizer Recommendation</a>
+        </div>
+    </main>
+</div>
+</body>
+</html>

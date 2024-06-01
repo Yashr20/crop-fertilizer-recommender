@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KHETI-KAKSHA - Fertilizer Recommendation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('{{ url_for('static', filename='3.jpg') }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header nav {
+            margin-right: 1rem;
+        }
+        header a {
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        header a:hover {
+            background-color: #45a049;
+        }
+        main {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 5rem auto 2rem auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        h1 {
+            margin-top: 0;
+            text-align: center;
+            color: #4CAF50;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        footer {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>KHETI-KAKSHA</h1>
+        <nav>
+            <a href="/">HOME</a>
+            <a href="/crop-recommend">Crop</a>
+            <a href="/fertilizer">Fertilizer</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Fertilizer Recommendation</h1>
+        <form action="/fertilizer-predict" method="post">
+            <label for="temp">Temperature (°C):</label>
+            <input type="number" id="temp" name="temp" step="0.1" min="0" max="40.0" required placeholder="Enter value between 0 and 40.0">
+
+            <label for="humid">Humidity (%):</label>
+            <input type="number" id="humid" name="humid" step="0.1" min="0" max="99.9" required placeholder="Enter value between 0 and 99.9">
+
+            <label for="soil">Soil Type:</label>
+            <select id="soil" name="soil" required>
+                <option value="4">Sandy</option>
+                <option value="2">Loamy</option>
+                <option value="1">Clayey</option>
+                <option value="3">Red</option>
+                <option value="0">Black</option>
+                <option value="5">Alluvial</option>
+                <option value="6">Clay Loam</option>
+                <option value="7">Coastal</option>
+                <option value="8">Laterite</option>
+                <option value="9">Silty Clay</option>
+            </select>
+
+            <label for="crop">Crop:</label>
+            <select id="crop" name="crop" required>
+                <option value="7">Paddy</option>
+                <option value="16">Rice</option>
+                <option value="11">Wheat</option>
+                <option value="4">Maize</option>
+                <option value="0">Barley</option>
+                <option value="2">Cotton</option>
+                <option value="3">Ground Nuts</option>
+                <option value="5">Millet's</option>
+                <option value="6">Oil Seeds</option>
+                <option value="8">Pulses</option>
+                <option value="9">Sugarcane</option>
+                <option value="10">Tobacco</option>
+                <option value="1">Coconut</option>
+                <option value="12">Coffee</option>
+                <option value="13">Kidney Beans</option>
+                <option value="14">Orange</option>
+                <option value="15">Pomegranate</option>
+                <option value="17">Watermelon</option>
+            </select>
+
+            <label for="nitro">Nitrogen (%):</label>
+            <input type="number" id="nitro" name="nitro" step="0.1" min="0" max="126.0" required placeholder="Enter value between 0 and 126.0">
+
+            <label for="pota">Potassium (%):</label>
+            <input type="number" id="pota" name="pota" step="0.1" min="0" max="59.0" required placeholder="Enter value between 0 and 59.0">
+
+            <label for="phos">Phosphorus (%):</label>
+            <input type="number" id="phos" name="phos" step="0.1" min="0" max="54.0" required placeholder="Enter value between 0 and 54.0">
+
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 KHETI-KAKSHA. All rights reserved.</p>
+    </footer>
+</div>
+</body>
+</html>
